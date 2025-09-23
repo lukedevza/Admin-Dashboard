@@ -1,10 +1,23 @@
-import { logout } from "@/actions/logout";
-import { Button } from "@/components/ui/button";
+import { auth } from "@/auth";
+import Table from "@/components/dashboard/table-view";
+import { getEmployees } from "@/data/user";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/auth/login");
+  }
+
+  const employees = await getEmployees();
+
   return (
-    <p>
-      <Button onClick={logout}>Logout</Button>
-    </p>
+    <>
+      <Table
+        data={employees}
+        role={session?.user.role}
+      />
+    </>
   );
 }
