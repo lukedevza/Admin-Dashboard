@@ -7,7 +7,7 @@ export default async function CreateEmployeePage() {
     <div className=" h-full flex-1 flex-col gap-8 px-8 py-4 md:flex">
       <div className="flex items-center justify-between gap-2">
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl font-semibold tracking-tight">Create new employee</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Create New Employee</h2>
         </div>
       </div>
       <CreateEmployeeForm departments={departments ?? []} />

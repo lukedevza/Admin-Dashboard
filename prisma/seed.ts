@@ -25,12 +25,12 @@ async function main() {
 
   // Create admin
   await prisma.user.upsert({
-    where: { email: "admin@example.com" },
+    where: { email: "admin.user@company.com" },
     update: {},
     create: {
       firstName: "Admin",
       lastName: "User",
-      email: "admin@example.com",
+      email: "admin.user@company.com",
       password: hashedAdmin,
       role: UserRole.ADMIN,
       departmentId: sales.id,
@@ -39,12 +39,12 @@ async function main() {
 
   // Create manager
   await prisma.user.upsert({
-    where: { email: "manager@example.com" },
+    where: { email: "jane.manager@company.com" },
     update: {},
     create: {
       firstName: "Jane",
       lastName: "Manager",
-      email: "manager@example.com",
+      email: "jane.manager@company.com",
       password: hashedManager,
       role: UserRole.MANAGER,
       departmentId: warehouse.id,
@@ -53,12 +53,12 @@ async function main() {
 
   // Create employees
   await prisma.user.upsert({
-    where: { email: "employee1@example.com" },
+    where: { email: "john.doe@company.com" },
     update: {},
     create: {
       firstName: "John",
       lastName: "Doe",
-      email: "employee1@example.com",
+      email: "john.doe@company.com",
       password: hashedEmployee1,
       role: UserRole.EMPLOYEE,
       departmentId: sales.id,
@@ -66,12 +66,12 @@ async function main() {
   });
 
   await prisma.user.upsert({
-    where: { email: "employee2@example.com" },
+    where: { email: "mary.smith@company.com" },
     update: {},
     create: {
       firstName: "Mary",
       lastName: "Smith",
-      email: "employee2@example.com",
+      email: "mary.smith@company.com",
       password: hashedEmployee2,
       role: UserRole.EMPLOYEE,
       departmentId: warehouse.id,
