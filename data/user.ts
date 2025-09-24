@@ -23,18 +23,17 @@ export const getUserById = async (id: string) => {
 export const getEmployees = async () => {
   const users = await db.user.findMany({
     include: {
-      department: true, // <- include the department relation
+      department: true,
     },
   });
 
-  // map to the shape your table expects
   return users.map((u) => ({
     id: u.id,
     firstName: u.firstName,
     lastName: u.lastName,
     email: u.email,
     role: u.role,
-    department: u.department.name, // now it's the string
+    department: u.department.name,
   }));
 };
 
