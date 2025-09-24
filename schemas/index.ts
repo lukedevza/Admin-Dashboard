@@ -40,3 +40,15 @@ export const createEmployeeSchema = z.object({
   role: z.string(),
   departmentId: z.string(),
 });
+
+export const editEmployeeSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  email: z.email(),
+  password: z
+    .string()
+    .nonempty({ message: "Password is required" })
+    .min(6, { message: "Password must be at least 6 characters" }),
+  role: z.string(),
+  departmentId: z.string(),
+});
