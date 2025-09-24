@@ -28,3 +28,15 @@ export const employeeSchema = z.object({
 });
 
 export type Employee = z.infer<typeof employeeSchema>;
+
+export const createEmployeeSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+
+  password: z
+    .string()
+    .nonempty({ message: "Password is required" })
+    .min(6, { message: "Password must be at least 6 characters" }),
+  role: z.string(),
+  departmentId: z.string(),
+});

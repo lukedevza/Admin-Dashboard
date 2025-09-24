@@ -60,7 +60,7 @@ async function main() {
       lastName: "Doe",
       email: "employee1@example.com",
       password: hashedEmployee1,
-      role: UserRole.USER,
+      role: UserRole.EMPLOYEE,
       departmentId: sales.id,
     },
   });
@@ -73,7 +73,7 @@ async function main() {
       lastName: "Smith",
       email: "employee2@example.com",
       password: hashedEmployee2,
-      role: UserRole.USER,
+      role: UserRole.EMPLOYEE,
       departmentId: warehouse.id,
     },
   });
