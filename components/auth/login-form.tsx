@@ -19,10 +19,12 @@ import { useState } from "react";
 import { login } from "@/actions/login";
 import { useTransition } from "react";
 import { Loader2Icon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>("");
+  const router = useRouter();
 
   //
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -37,12 +39,16 @@ export const LoginForm = () => {
     setError("");
 
     startTransition(() => {
-      login(values).then((data) => {
-        if (data?.error) {
-          form.reset();
-          setError(data.error);
-        }
-      });
+      login(values)
+        .then((data) => {
+          if (data?.error) {
+            form.reset();
+            setError(data.error);
+          }
+        })
+        .finally(() => {
+          router.push("/dashboard");
+        });
     });
   };
 

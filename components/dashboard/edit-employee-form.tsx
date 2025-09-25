@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import * as z from "zod";
-import { createEmployeeSchema, editEmployeeSchema } from "@/schemas";
+import { editEmployeeSchema } from "@/schemas";
 import { Input } from "../ui/input";
 import {
   DropdownMenu,
@@ -23,7 +23,7 @@ import {
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { useState, useTransition } from "react";
-import { createEmployee } from "@/actions/create-employee";
+
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { User } from "@prisma/client";

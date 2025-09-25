@@ -25,7 +25,6 @@ export function DataTableRowActions<TData>({
   employeeId,
   role,
 }: DataTableRowActionsProps<TData>) {
-  console.log(role);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   return (
